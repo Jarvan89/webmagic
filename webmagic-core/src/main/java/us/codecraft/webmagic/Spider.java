@@ -305,7 +305,7 @@ public class Spider implements Runnable, Task {
         initComponent();
         logger.info("Spider {} started!",getUUID());
         while (!Thread.currentThread().isInterrupted() && stat.get() == STAT_RUNNING) {
-            final Request request = scheduler.poll(this);
+            final Request equest = scheduler.poll(this);
             if (request == null) {
                 if (threadPool.getThreadAlive() == 0 && exitWhenComplete) {
                     break;
